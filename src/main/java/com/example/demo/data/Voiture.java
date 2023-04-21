@@ -12,6 +12,8 @@ public class Voiture {
     String marque;
     int prix;
 
+    public Voiture() {
+        }
 
     public Voiture(int id, String marque, int prix) {
         this.id = id;
