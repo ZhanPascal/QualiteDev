@@ -128,13 +128,40 @@ https://github.com/charroux/qualiteDeDeveloppement/blob/main/src/test/java/com/e
 
 Ajoutez à cette classe autant de méthodes que vous jugez utile pour tester l'accès à la base de données. 
 
-# TP 2 : codage de la classe de service qui intègre la base de données
+# TP 3 : codage de la classe de service qui intègre la base de données
+
+L'application a développer sur la base des voitures calcule des statistiques sur les voitures.
+La base de cette application est une interface : https://github.com/charroux/qualiteDeDeveloppement/blob/main/src/main/java/com/example/demo/service/Statistique.java
+
+## Coder une classe de service
+
+Coder une classe qui implémente cette interface.
+La classe Echantillon doit retourner le nombre de voiture et leur prix moyen.
+
+Pour que cette classe puisse accéder à la base de données il suffit d'y ajouter :
+
+```
+@Autowired
+VoitureRepository voitureRepository;
+```
 
 ## Tests de la classe de service
 
-# TP 3 : codage de l'interface Web
+Créer un package appelé service pour tester la classe de service et implementez-y un programme de test.
+
+# TP 4 : codage de l'interface Web
 
 ## Cours sur les Web services Rest
 https://drive.google.com/drive/folders/1RVLc4yg5IKTq3OSht6wm1Cdjq9jOLEqy?usp=sharing
 
+## Codage d'un Web service
+
+Ajouter au dossier src un package appelé web.
+
+Coder une classe controller qui réagit à deux requêtes HTTP : 
+- GET sur /statistique et qui retourne un objet du type échantillon
+- POST qui permet d'ajouter une nouvelle voiture
+
 ## Test du Web service
+
+Créer dans le dossier test un package web. Implentez-y une classe de test pour le Web service.
