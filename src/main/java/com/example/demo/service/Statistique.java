@@ -11,6 +11,6 @@ public interface Statistique {
      * @return
      * @throws ArithmeticException s'il n'y a pas de voiture
      */
-    public Echantillon prixMoyen() throws ArithmeticException;
+    public int prixMoyen() throws ArithmeticException;
 
 }

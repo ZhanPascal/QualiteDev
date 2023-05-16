@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.data.Voiture;
 import com.example.demo.data.VoitureRepository;
 
-public class Echantillon {
+public class Echantillon implements Statistique{
 
     @Autowired
     private VoitureRepository voitureRepository;
@@ -29,6 +29,14 @@ public class Echantillon {
         
 
         return moyenne;
+    }
+
+    public void ajouter(Voiture voiture){
+        try{
+            voitureRepository.save(voiture);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
 }
