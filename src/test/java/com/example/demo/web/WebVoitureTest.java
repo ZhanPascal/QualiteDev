@@ -39,7 +39,7 @@ public class WebVoitureTest {
 	void ajouterVoiture() throws Exception {
 		mockMvc.perform(post("/voiture")
 			.contentType(MediaType.APPLICATION_JSON)
-			.content("{ \"id\": 4, \"marque\": \"Audi\", \"prix\": 10000 }")
+			.content("{\"marque\": \"Audi\", \"prix\": 10000 }")
 			.accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk());
 	}
