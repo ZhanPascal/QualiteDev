@@ -3,9 +3,6 @@ package com.example.demo.data;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.util.Assert;
-
-import java.util.Collections;
 import java.util.Optional;
 
 import static org.mockito.Mockito.doNothing;

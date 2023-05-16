@@ -21,6 +21,11 @@ public class Voiture {
         this.prix = prix;
     }
 
+    public Voiture(String marque, int prix) {
+        this.marque = marque;
+        this.prix = prix;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {

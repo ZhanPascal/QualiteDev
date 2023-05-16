@@ -1,16 +1,32 @@
 package com.example.demo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.demo.data.Voiture;
+import com.example.demo.data.VoitureRepository;
 
-public interface Statistique {
+import java.util.Iterator;
 
-    public void ajouter(Voiture voiture);
+@Service
+public class Statistique {
 
-    /**
-     *
-     * @return
-     * @throws ArithmeticException s'il n'y a pas de voiture
-     */
-    public int prixMoyen() throws ArithmeticException;
+    @Autowired
+    VoitureRepository voitureRepository;
+
+    public void ajouter(Voiture voiture) {
+        voitureRepository.save(voiture);
+    }
+
+    public Echantillon prixMoyen() throws ArithmeticException{
+        int prixTotal = 0;
+        int nombreDeVoitures = 0;
+        Iterator<Voiture> voitures = voitureRepository.findAll().iterator();
+        while(voitures.hasNext()){
+            prixTotal = prixTotal + voitures.next().getPrix();
+            nombreDeVoitures++;
+        }
+        return new Echantillon(nombreDeVoitures, prixTotal/nombreDeVoitures);
+    }
 
 }

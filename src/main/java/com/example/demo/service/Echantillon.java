@@ -1,42 +1,30 @@
 package com.example.demo.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+public class Echantillon {
 
-import com.example.demo.data.Voiture;
-import com.example.demo.data.VoitureRepository;
+    int nombreDeVoitures;
+    int prixMoyen;
 
-public class Echantillon implements Statistique{
+    public Echantillon(){}
 
-    @Autowired
-    private VoitureRepository voitureRepository;
-
-    public int prixMoyen() throws ArithmeticException{
-        int nombreVoitures = 0;
-        int sommePrix = 0;
-        int moyenne = 0;
-
-        try {
-            nombreVoitures = (int)voitureRepository.count();
-            for (Voiture voiture : voitureRepository.findAll()){
-                sommePrix += voiture.getPrix();
-            }
-            moyenne = sommePrix/nombreVoitures;
-        }catch(ArithmeticException e){
-            System.out.println(e.getMessage());
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        
-
-        return moyenne;
+    public Echantillon(int nombreDeVoitures, int prixMoyen) {
+        this.nombreDeVoitures = nombreDeVoitures;
+        this.prixMoyen = prixMoyen;
     }
 
-    public void ajouter(Voiture voiture){
-        try{
-            voitureRepository.save(voiture);
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+    public int getNombreDeVoitures() {
+        return nombreDeVoitures;
     }
 
+    public void setNombreDeVoitures(int nombreDeVoitures) {
+        this.nombreDeVoitures = nombreDeVoitures;
+    }
+
+    public int getPrixMoyen() {
+        return prixMoyen;
+    }
+
+    public void setPrixMoyen(int prixMoyen) {
+        this.prixMoyen = prixMoyen;
+    }
 }
